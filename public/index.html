@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./index.css" />
+   <title>Document</title>
+</head>
+
+<body class="container">
+   <div class="title">API MERN TASK</div>
+   <div class="table">
+      <table>
+         <tr>
+            <th>URL</th>
+            <th>DETAILS</th>
+            <th>METHOD</th>
+            <th>HEADERS</th>
+            <th>BODY</th>
+            <th>RESPONSE</th>
+         </tr>
+         <tr>
+            <td>/api/usuarios</td>
+            <td>Crear un usuario</td>
+            <td>POST</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+            </td>
+            <td>
+               <pre>{
+   "nombre": "name",
+   "email": "name@name.com",
+   "password": "1234567890",
+}</pre>
+            </td>
+            <td>
+               <pre>{
+   "msg": "Inicio de sesion exitosamente!",
+   "token": "token..."
+} </pre>
+            </td>
+         </tr>
+
+         <tr>
+            <td>/api/auth</td>
+            <td>Iniciar sesion</td>
+            <td>POST</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+            </td>
+            <td>
+               <pre>{
+   "email": "name@name.com",
+   "password": "1234567890",
+}</pre>
+            </td>
+            <td>
+               <pre>{
+   "msg": "Inicio de sesion exitosamente!",
+   "token": "token..."
+}</pre>
+            </td>
+         </tr>
+
+         <tr>
+            <td>/api/proyectos</td>
+            <td>Crear un proyecto</td>
+            <td>POST</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+               <pre>x-auth-token: token...</pre>
+            </td>
+            <td>
+               <pre>{
+   "nombre": "name"
+}</pre>
+            </td>
+            <td>
+               <pre>{
+   "msg": "Proyecto creado exitosamente!",
+   "proyecto": {
+      ...proyecto
+   }
+}</pre>
+            </td>
+         </tr>
+
+         <tr>
+            <td>/api/proyectos</td>
+            <td>Obtener los proyectos de un usuario</td>
+            <td>GET</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+               <pre>x-auth-token: token...</pre>
+            </td>
+            <td>
+               <pre>none</pre>
+            </td>
+            <td>
+               <pre>[
+   {   ...proyecto1   },
+   {   ...proyecto2   },
+   {   ...proyecto3   },
+]</pre>
+            </td>
+         </tr>
+
+         <tr>
+            <td>/api/proyectos/:id</td>
+            <td>Actualizar proyecto</td>
+            <td>PUT</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+               <pre>x-auth-token: token...</pre>
+            </td>
+            <td>
+               <pre>{
+   "nombre" : "name"
+}</pre>
+            </td>
+            <td>
+               <pre>{ 
+   msg: 'Actualizado exitosamente!', 
+   proyecto: {...proyecto} 
+}</pre>
+            </td>
+         </tr>
+
+         <tr>
+            <td>/api/proyectos/:id</td>
+            <td>Eliminar proyecto</td>
+            <td>DELETE</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+               <pre>x-auth-token: token...</pre>
+            </td>
+            <td>
+               <pre>{ 
+   msg: 'Proyecto eliminado!'
+}</pre>
+            </td>
+            <td>
+               <pre>{ 
+   msg: 'Proyecto eliminado!'
+}</pre>
+            </td>
+         </tr>
+
+
+
+         <tr>
+            <td>/api/tareas</td>
+            <td>Crear una tarea</td>
+            <td>POST</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+               <pre>x-auth-token: token...</pre>
+            </td>
+            <td>
+               <pre>{
+   "nombre": "nombre tarea",
+   "proyecto": "id proyecto"
+}</pre>
+            </td>
+            <td>
+               <pre>{ 
+   "msg": 'Tarea creeada exitosamente', 
+   tarea: { ...proyecto }
+}</pre>
+            </td>
+         </tr>
+
+         <tr>
+            <td>/api/tarea</td>
+            <td>Obtener las tareas de un proyecto</td>
+            <td>GET</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+               <pre>x-auth-token: token...</pre>
+            </td>
+            <td>
+               <pre>{
+   "proyecto": "id proyecto"
+}</pre>
+            </td>
+            <td>
+               <pre>[
+   {   ...tarea1   },
+   {   ...tarea2   },
+   {   ...tarea3   },
+]</pre>
+            </td>
+         </tr>
+
+         <tr>
+            <td>/api/tarea/:id</td>
+            <td>Actualizar tarea</td>
+            <td>PUT</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+               <pre>x-auth-token: token...</pre>
+            </td>
+            <td>
+               <pre>{
+   "nombre" : "name tarea",
+   "estado" : "true | false",
+   "proyecto": "id proyecto"
+}</pre>
+            </td>
+            <td>
+               <pre>{ 
+   msg: 'Actualizado correcta!', 
+   tarea: {...tarea} 
+}</pre>
+            </td>
+         </tr>
+
+         <tr>
+            <td>/api/tarea/:id</td>
+            <td>Eliminar tarea</td>
+            <td>DELETE</td>
+            <td>
+               <pre>Content-Type: application/json</pre>
+               <pre>x-auth-token: token...</pre>
+            </td>
+            <td>
+               <pre>{
+   "proyecto": "id proyecto"
+}</pre>
+            </td>
+            <td>
+               <pre>{ 
+   msg: 'Tarea eliminada!'
+}</pre>
+            </td>
+         </tr>
+
+      </table>
+   </div>
+</body>
+
+</html>
